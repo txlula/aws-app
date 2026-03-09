@@ -2,21 +2,27 @@
   "name": "aws-app",
   "version": "1.0.0",
   "main": "index.js",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --fix",
+    "*.{js,jsx,ts,tsx,json,css,md}": "prettier --write"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/txlula/aws-app.git"
   },
-  "author": "",
+  "author": "Lucy Nguyen",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/txlula/aws-app/issues"
   },
   "homepage": "https://github.com/txlula/aws-app#readme",
   "description": "",
-  "dependencies": {
+  "devDependencies": {
     "eslint": "^10.0.3",
     "lint-staged": "^16.3.2",
     "prettier": "^3.8.1"
