@@ -1,12 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-    <p>This is a basic HTML page.</p>
-</body>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Mood Checker</title>
+  </head>
+
+  <body>
+    <h1>Daily Mood Checker</h1>
+    <p id="description">It is time to track your daily mood and feelings.</p>
+
+    <div id="moodForm">
+      <form>
+        <div>
+          <p>How are you feeling today?</p>
+          <input
+            type="text"
+            name="moodInput"
+            id="moodInput"
+            placeholder="Happy"
+          />
+        </div>
+
+        <div>
+          <p>What is the reason for your mood?</p>
+          <input
+            type="text"
+            name="reasonInput"
+            id="reasonInput"
+            placeholder="I had a great day at work!"
+          />
+        </div>
+
+        <div>
+          <p>What is your energy level today?</p>
+          <input type="radio" name="energyInput" id="energyLow" value="Low" />
+          <label for="energyLow">Low</label>
+          <input
+            type="radio"
+            name="energyInput"
+            id="energyMedium"
+            value="Medium"
+          />
+          <label for="energyMedium">Medium</label>
+          <input type="radio" name="energyInput" id="energyHigh" value="High" />
+          <label for="energyHigh">High</label>
+        </div>
+
+        <div>
+          <p>What is something you are grateful for today?</p>
+          <input
+            type="text"
+            name="gratitudeInput"
+            id="gratitudeInput"
+            placeholder="I am grateful for..."
+          />
+        </div>
+
+        <div>
+          <p>What is something you want to accomplish tomorrow?</p>
+          <input
+            type="text"
+            name="goalInput"
+            id="goalInput"
+            placeholder="I want to..."
+          />
+        </div>
+
+        <div>
+          <p>Any additional ideas or thoughts?</p>
+          <textarea
+            name="additionalInput"
+            id="additionalInput"
+            placeholder="Write your thoughts here..."
+          ></textarea>
+        </div>
+
+        <button type="submit" id="submitMoodForm">Submit</button>
+      </form>
+    </div>
+  </body>
 </html>
