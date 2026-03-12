@@ -7,6 +7,18 @@ h1 {
     text-align: center;
 }
 
+.questionContainer {
+    margin-bottom: 3em;
+}
+
+.question {
+    font-size: 18px;
+}
+
+.moodImageContainer {
+    margin-top: 1em;
+}
+
 #description {
     text-align: center;
     font-style: italic;
@@ -22,6 +34,6 @@ h1 {
     margin-right: 1em;
 }
 
-.question {
-    font-size: 18px;
+#moodImage {
+    width: 10%;
 }

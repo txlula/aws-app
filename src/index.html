@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,17 +14,21 @@
 
     <div id="moodForm">
       <form>
-        <div>
+        <div class="questionContainer">
           <p class="question">How are you feeling today?</p>
-          <input
-            type="text"
-            name="moodInput"
-            id="moodInput"
-            placeholder="Happy"
-          />
+          <input type="radio" id="happy" name="mood" value="happy" />
+          <label for="happy">Happy</label>
+          <input type="radio" id="neutral" name="mood" value="neutral" checked/>
+          <label for="neutral">Neutral</label>
+          <input type="radio" id="sad" name="mood" value="sad" />
+          <label for="sad">Sad</label>
+
+          <div class="moodImageContainer">
+            <img id="moodImage" src="images/neutral face.png" alt="Mood Image" />
+          </div>
         </div>
 
-        <div>
+        <div class="questionContainer">
           <p class="question">What is the reason for your mood?</p>
           <input
             type="text"
@@ -33,13 +38,19 @@
           />
         </div>
 
-        <div>
+        <div class="questionContainer">
           <p class="question">What is your energy level today?</p>
-          <label for="energyLevel">Energy Level (0-100):</label>
-          <input type="range" id="energyLevel" name="energyLevel" min="0" max="100">
+          <input
+            type="range"
+            id="energyLevel"
+            name="energyLevel"
+            min="0"
+            max="100"
+          />
+          <p>Energy Level: <span id="energyLevelValue">50</span></p>
         </div>
 
-        <div>
+        <div class="questionContainer">
           <p class="question">What is something you are grateful for today?</p>
           <input
             type="text"
@@ -49,8 +60,10 @@
           />
         </div>
 
-        <div>
-          <p class="question">What is something you want to accomplish tomorrow?</p>
+        <div class="questionContainer">
+          <p class="question">
+            What is something you want to accomplish tomorrow?
+          </p>
           <input
             type="text"
             name="goalInput"
@@ -59,7 +72,7 @@
           />
         </div>
 
-        <div>
+        <div class="questionBlock">
           <p class="question">Any additional ideas or thoughts?</p>
           <textarea
             name="additionalInput"
@@ -68,7 +81,7 @@
           ></textarea>
         </div>
 
-        <input type="button" onclick="alert('Thank you, have a great day! :\)')" value="Submit">
+        <input type="button" value="Submit" />
       </form>
     </div>
   </body>
