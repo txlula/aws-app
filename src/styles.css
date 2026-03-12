@@ -9,6 +9,7 @@ h1 {
 
 #description {
     text-align: center;
+    font-style: italic;
 }
 
 #moodForm {
@@ -19,4 +20,8 @@ h1 {
     padding-top: 1em;
     margin-left: 1em;
     margin-right: 1em;
+}
+
+.question {
+    font-size: 18px;
 }

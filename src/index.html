@@ -14,7 +14,7 @@
     <div id="moodForm">
       <form>
         <div>
-          <p>How are you feeling today?</p>
+          <p class="question">How are you feeling today?</p>
           <input
             type="text"
             name="moodInput"
@@ -24,7 +24,7 @@
         </div>
 
         <div>
-          <p>What is the reason for your mood?</p>
+          <p class="question">What is the reason for your mood?</p>
           <input
             type="text"
             name="reasonInput"
@@ -34,22 +34,13 @@
         </div>
 
         <div>
-          <p>What is your energy level today?</p>
-          <input type="radio" name="energyInput" id="energyLow" value="Low" />
-          <label for="energyLow">Low</label>
-          <input
-            type="radio"
-            name="energyInput"
-            id="energyMedium"
-            value="Medium"
-          />
-          <label for="energyMedium">Medium</label>
-          <input type="radio" name="energyInput" id="energyHigh" value="High" />
-          <label for="energyHigh">High</label>
+          <p class="question">What is your energy level today?</p>
+          <label for="energyLevel">Energy Level (0-100):</label>
+          <input type="range" id="energyLevel" name="energyLevel" min="0" max="100">
         </div>
 
         <div>
-          <p>What is something you are grateful for today?</p>
+          <p class="question">What is something you are grateful for today?</p>
           <input
             type="text"
             name="gratitudeInput"
@@ -59,7 +50,7 @@
         </div>
 
         <div>
-          <p>What is something you want to accomplish tomorrow?</p>
+          <p class="question">What is something you want to accomplish tomorrow?</p>
           <input
             type="text"
             name="goalInput"
@@ -69,7 +60,7 @@
         </div>
 
         <div>
-          <p>Any additional ideas or thoughts?</p>
+          <p class="question">Any additional ideas or thoughts?</p>
           <textarea
             name="additionalInput"
             id="additionalInput"
@@ -77,7 +68,7 @@
           ></textarea>
         </div>
 
-        <button type="submit" id="submitMoodForm">Submit</button>
+        <input type="button" onclick="alert('Thank you, have a great day! :\)')" value="Submit">
       </form>
     </div>
   </body>
