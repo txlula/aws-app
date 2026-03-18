@@ -1,21 +1,137 @@
-describe("testing Daily Mood Checker website", () => {
+const url =
+  "http://mthree-peregrine-s3-3.s3-website-us-east-1.amazonaws.com/lucy";
+
+describe("testing website header", () => {
   beforeEach(() => {
-    cy.visit("http://mthree-peregrine-s3-3.s3-website-us-east-1.amazonaws.com/lucy");
+    cy.visit(url);
   });
 
-  it("allows the user to select a happy mood", () => {
+  it("displays the correct title", () => {
+    cy.title().should("eq", "Daily Mood Checker");
+    cy.get("h1").should("contain", "Daily Mood Checker");
+  });
+
+  it("displays the correct description", () => {
+    cy.get("#description").should(
+      "contain",
+      "It is time to track your daily mood and feelings.",
+    );
+  });
+});
+
+describe("testing website content", () => {
+  beforeEach(() => {
+    cy.visit(url);
+  });
+
+  it("displays the correct questions", () => {
+    cy.get("#moodForm").should("contain", "How are you feeling today?");
+    cy.get("#moodForm").should("contain", "What is the reason for your mood?");
+    cy.get("#moodForm").should("contain", "What is your energy level today?");
+    cy.get("#moodForm").should(
+      "contain",
+      "What is something you are grateful for today?",
+    );
+    cy.get("#moodForm").should(
+      "contain",
+      "What is something you want to accomplish tomorrow?",
+    );
+    cy.get("#moodForm").should("contain", "Any additional ideas or thoughts?");
+  });
+});
+
+describe("testing form submission", () => {
+  beforeEach(() => {
+    cy.visit(url);
+  });
+
+  it("allows the user to submit the form with a happy mood", () => {
     cy.get("#happy").check();
     cy.get("#happy").should("be.checked");
+
+    cy.get("#moodImage")
+      .should("have.attr", "src")
+      .and("include", "happy face.png");
+
+    cy.get("#reasonInput").type("I had a great day!");
+    cy.get("#reasonInput").should("have.value", "I had a great day!");
+
+    cy.get("#energyLevel").invoke("val", 80).trigger("input").trigger("change");
+    cy.get("#energyLevelValue").should("have.text", "80");
+
+    cy.get("#gratefulInput").type("I am grateful for my family.");
+    cy.get("#gratefulInput").should(
+      "have.value",
+      "I am grateful for my family.",
+    );
+
+    cy.get("#goalInput").type("I want to finish my project.");
+    cy.get("#goalInput").should("have.value", "I want to finish my project.");
+
+    cy.get("#additionalInput").type("I am feeling good!");
+    cy.get("#additionalInput").should("have.value", "I am feeling good!");
+
+    cy.get("#submitButton").click();
   });
 
-    it("allows the user to select a sad mood", () => {
-    cy.get("#sad").check();
-    cy.get("#sad").should("be.checked");
-  });
-
-    it("allows the user to select a neutral mood", () => {
+  it("allows the user to submit the form with a neutral mood", () => {
     cy.get("#neutral").check();
     cy.get("#neutral").should("be.checked");
+
+    cy.get("#moodImage")
+      .should("have.attr", "src")
+      .and("include", "neutral face.png");
+
+    cy.get("#reasonInput").type("It was an average day.");
+    cy.get("#reasonInput").should("have.value", "It was an average day.");
+
+    cy.get("#energyLevel").invoke("val", 50).trigger("input").trigger("change");
+    cy.get("#energyLevelValue").should("have.text", "50");
+
+    cy.get("#gratefulInput").type("I am grateful for my health.");
+    cy.get("#gratefulInput").should(
+      "have.value",
+      "I am grateful for my health.",
+    );
+
+    cy.get("#goalInput").type("I want to go for a walk tomorrow.");
+    cy.get("#goalInput").should(
+      "have.value",
+      "I want to go for a walk tomorrow.",
+    );
+
+    cy.get("#additionalInput").type("I am feeling okay.");
+    cy.get("#additionalInput").should("have.value", "I am feeling okay.");
+
+    cy.get("#submitButton").click();
   });
 
+  it("allows the user to submit the form with a sad mood", () => {
+    cy.get("#sad").check();
+    cy.get("#sad").should("be.checked");
+
+    cy.get("#moodImage")
+      .should("have.attr", "src")
+      .and("include", "sad face.png");
+
+    cy.get("#reasonInput").type("I had a tough day.");
+    cy.get("#reasonInput").should("have.value", "I had a tough day.");
+
+    cy.get("#energyLevel").invoke("val", 20).trigger("input").trigger("change");
+    cy.get("#energyLevelValue").should("have.text", "20");
+
+    cy.get("#gratefulInput").type("I am grateful for my friends.");
+    cy.get("#gratefulInput").should(
+      "have.value",
+      "I am grateful for my friends.",
+    );
+
+    cy.get("#goalInput").type("I want to relax tomorrow.");
+    cy.get("#goalInput").should("have.value", "I want to relax tomorrow.");
+
+    cy.get("#additionalInput").type("I am feeling down.");
+    cy.get("#additionalInput").should("have.value", "I am feeling down.");
+
+    cy.get("#submitButton").click();
+  });
 });
