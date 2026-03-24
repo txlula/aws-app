@@ -72,6 +72,13 @@ describe("testing form submission", () => {
     cy.get("#additionalInput").should("have.value", "I am feeling good!");
 
     cy.get("#submitButton").click();
+
+    cy.get("#resultsDialog").should("be.visible");
+    cy.get("h2").should("contain", "Submission Results");
+    cy.get("#score").should("contain", "Your score: 90.00");
+    cy.get("#resultsContent").should("contain", "Great job! You are doing well. Appreciate the work you have done today and keep it up!");
+    cy.get("#closeDialogButton").click();
+    cy.get("#resultsDialog").should("not.be.visible");
   });
 
   it("allows the user to submit the form with a neutral mood", () => {
@@ -104,6 +111,12 @@ describe("testing form submission", () => {
     cy.get("#additionalInput").should("have.value", "I am feeling okay.");
 
     cy.get("#submitButton").click();
+    cy.get("#resultsDialog").should("be.visible");
+    cy.get("h2").should("contain", "Submission Results");
+    cy.get("#score").should("contain", "Your score: 50.00");
+    cy.get("#resultsContent").should("contain", "Not bad! Keep it up. Remember to take breaks and do something you enjoy to boost your mood and energy.");
+    cy.get("#closeDialogButton").click();
+    cy.get("#resultsDialog").should("not.be.visible");
   });
 
   it("allows the user to submit the form with a sad mood", () => {
@@ -133,5 +146,11 @@ describe("testing form submission", () => {
     cy.get("#additionalInput").should("have.value", "I am feeling down.");
 
     cy.get("#submitButton").click();
+    cy.get("#resultsDialog").should("be.visible");
+    cy.get("h2").should("contain", "Submission Results");
+    cy.get("#score").should("contain", "Your score: 10.00");
+    cy.get("#resultsContent").should("contain", "It seems like you're having a tough day. Consider taking a break or doing something you enjoy.");
+    cy.get("#closeDialogButton").click();
+    cy.get("#resultsDialog").should("not.be.visible");
   });
 });
