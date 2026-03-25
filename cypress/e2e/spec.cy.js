@@ -24,6 +24,10 @@ describe("testing website content", () => {
     cy.visit(url);
   });
 
+  it("displays the body", () => {
+    cy.get("body").should("be.visible");
+  });
+
   it("displays the correct questions", () => {
     cy.get("#moodForm").should("contain", "How are you feeling today?");
     cy.get("#moodForm").should("contain", "What is the reason for your mood?");
@@ -53,6 +57,8 @@ describe("testing form submission", () => {
       .should("have.attr", "src")
       .and("include", "happy face.png");
 
+    cy.get("#moodImage").should("have.attr", "alt", "Happy Face");
+
     cy.get("#reasonInput").type("I had a great day!");
     cy.get("#reasonInput").should("have.value", "I had a great day!");
 
@@ -76,7 +82,10 @@ describe("testing form submission", () => {
     cy.get("#resultsDialog").should("be.visible");
     cy.get("h2").should("contain", "Submission Results");
     cy.get("#score").should("contain", "Your score: 90.00");
-    cy.get("#resultsContent").should("contain", "Great job! You are doing well. Appreciate the work you have done today and keep it up!");
+    cy.get("#resultsContent").should(
+      "contain",
+      "Great job! You are doing well. Appreciate the work you have done today and keep it up!",
+    );
     cy.get("#closeDialogButton").click();
     cy.get("#resultsDialog").should("not.be.visible");
   });
@@ -88,6 +97,8 @@ describe("testing form submission", () => {
     cy.get("#moodImage")
       .should("have.attr", "src")
       .and("include", "neutral face.png");
+
+    cy.get("#moodImage").should("have.attr", "alt", "Neutral Face");
 
     cy.get("#reasonInput").type("It was an average day.");
     cy.get("#reasonInput").should("have.value", "It was an average day.");
@@ -114,7 +125,10 @@ describe("testing form submission", () => {
     cy.get("#resultsDialog").should("be.visible");
     cy.get("h2").should("contain", "Submission Results");
     cy.get("#score").should("contain", "Your score: 50.00");
-    cy.get("#resultsContent").should("contain", "Not bad! Keep it up. Remember to take breaks and do something you enjoy to boost your mood and energy.");
+    cy.get("#resultsContent").should(
+      "contain",
+      "Not bad! Keep it up. Remember to take breaks and do something you enjoy to boost your mood and energy.",
+    );
     cy.get("#closeDialogButton").click();
     cy.get("#resultsDialog").should("not.be.visible");
   });
@@ -126,6 +140,8 @@ describe("testing form submission", () => {
     cy.get("#moodImage")
       .should("have.attr", "src")
       .and("include", "sad face.png");
+
+    cy.get("#moodImage").should("have.attr", "alt", "Sad Face");
 
     cy.get("#reasonInput").type("I had a tough day.");
     cy.get("#reasonInput").should("have.value", "I had a tough day.");
@@ -149,8 +165,41 @@ describe("testing form submission", () => {
     cy.get("#resultsDialog").should("be.visible");
     cy.get("h2").should("contain", "Submission Results");
     cy.get("#score").should("contain", "Your score: 10.00");
-    cy.get("#resultsContent").should("contain", "It seems like you're having a tough day. Consider taking a break or doing something you enjoy.");
+    cy.get("#resultsContent").should(
+      "contain",
+      "It seems like you're having a tough day. Consider taking a break or doing something you enjoy.",
+    );
     cy.get("#closeDialogButton").click();
     cy.get("#resultsDialog").should("not.be.visible");
+  });
+});
+
+describe("testing form validation", () => {
+  beforeEach(() => {
+    cy.visit(url);
+  });
+
+  it("should not allow user to input more than 1000 characters", () => {
+    const longText = "a".repeat(1001);
+
+    cy.get("#additionalInput").should("have.attr", "maxlength", "1000");
+    cy.get("#additionalInput").type(longText);
+    cy.get("#additionalInput")
+      .should("have.value", "a".repeat(1000))
+      .invoke("val")
+      .and("have.length", 1000);
+  });
+
+  it("should not allow user to input less than 0 or more than 100 for energy level", () => {
+    cy.get("#energyLevel")
+      .invoke("val", -10)
+      .trigger("input")
+      .trigger("change");
+    cy.get("#energyLevelValue").should("have.text", "0");
+    cy.get("#energyLevel")
+      .invoke("val", 110)
+      .trigger("input")
+      .trigger("change");
+    cy.get("#energyLevelValue").should("have.text", "100");
   });
 });

@@ -24,7 +24,7 @@
           <label for="sad">Sad</label>
 
           <div class="moodImageContainer">
-            <img id="moodImage" src="images/neutral face.png" alt="Mood Face" />
+            <img id="moodImage" src="images/neutral face.png" alt="Neutral Face" />
           </div>
         </div>
 
@@ -35,6 +35,7 @@
             name="reasonInput"
             id="reasonInput"
             placeholder="I had a great day at work!"
+            required
           />
         </div>
 
@@ -46,6 +47,7 @@
             name="energyLevel"
             min="0"
             max="100"
+            value="50"
           />
           <p>Energy Level: <span id="energyLevelValue">50</span></p>
         </div>
@@ -57,6 +59,7 @@
             name="gratefulInput"
             id="gratefulInput"
             placeholder="I am grateful for..."
+            required
           />
         </div>
 
@@ -69,15 +72,17 @@
             name="goalInput"
             id="goalInput"
             placeholder="I want to..."
+            required
           />
         </div>
 
-        <div class="questionBlock">
+        <div class="questionContainer">
           <p class="question">Any additional ideas or thoughts?</p>
           <textarea
             name="additionalInput"
             id="additionalInput"
             placeholder="Write your thoughts here..."
+            maxlength="1000"
           ></textarea>
         </div>
 
