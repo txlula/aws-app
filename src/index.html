@@ -11,6 +11,47 @@
   <body>
     <h1>Daily Mood Checker</h1>
     <p id="description">It is time to track your daily mood and feelings.</p>
+    <p id="instructions">
+      Welcome! 😊 This form only takes a couple of minutes to fill in. Just
+      follow the steps below, working from top to bottom.<br />
+      1. Choose your mood. 🙋‍♀️<br />
+      Look for the three mood buttons near the top of the page — Happy 🙂,
+      Neutral 😐, and Sad 😞. Click the one that best matches how you're feeling
+      right now. You'll notice the face image on the page changes to match your
+      choice, so you can see it's been registered. <br />
+      2. Explain your mood. 🤔<br />
+      In the box that says "What is the reason for your mood?", type a short
+      sentence or two about why you're feeling that way today. For example: "I
+      had a great lunch with a friend" or "I'm feeling a bit tired after a busy
+      week." <br />
+      3. Set your energy level. 🔥<br />
+      You'll see a slider bar with the label "Energy Level" and a number beside
+      it (it starts at 50 out of 100). Click and drag the slider to the left if
+      your energy is low, or to the right if you're feeling energetic. The
+      number will update as you move it, so you can see your score. <br />
+      4. Share something you're grateful for. 🙏<br />
+      In the box labelled "What is something you are grateful for today?", write
+      down one thing you appreciate — it can be something big or something
+      small, like good weather, a kind word, or a hot cup of tea. <br />
+      5. Set a goal for tomorrow. 🎯<br />
+      In the box labelled "What is something you want to accomplish tomorrow?",
+      write one thing you'd like to do or achieve the next day. It doesn't have
+      to be ambitious — even something simple like "go for a short walk" counts!
+      <br />
+      6. Add any extra thoughts (optional). 💭<br />
+      If there's anything else on your mind, you can type it in the final box
+      labelled "Any additional ideas or thoughts?" This field is completely
+      optional, so feel free to leave it blank if you have nothing to add.
+      <br />
+      7. Submit your form. ✅<br />
+      Once you're happy with your answers, click the Submit button at the bottom
+      of the form. <br />
+      What happens next? After you click Submit, your answers will appear in a
+      Submission Results section that shows up at the bottom of the page. Take a
+      moment to look over what you've entered. When you're done, click the Close
+      button to dismiss the results. <br />
+      That's it — you're all done! 🎉
+    </p>
 
     <div id="moodForm">
       <form>
@@ -18,13 +59,23 @@
           <p class="question">How are you feeling today?</p>
           <input type="radio" id="happy" name="mood" value="happy" />
           <label for="happy">Happy</label>
-          <input type="radio" id="neutral" name="mood" value="neutral" checked/>
+          <input
+            type="radio"
+            id="neutral"
+            name="mood"
+            value="neutral"
+            checked
+          />
           <label for="neutral">Neutral</label>
           <input type="radio" id="sad" name="mood" value="sad" />
           <label for="sad">Sad</label>
 
           <div class="moodImageContainer">
-            <img id="moodImage" src="images/neutral face.png" alt="Neutral Face" />
+            <img
+              id="moodImage"
+              src="images/neutral face.png"
+              alt="Neutral Face"
+            />
           </div>
         </div>
 
@@ -89,12 +140,12 @@
         <button id="submitButton" type="submit">Submit</button>
       </form>
 
-        <dialog id="resultsDialog">
-          <h2>Submission Results</h2>
-          <p id="score"></p>
-          <p id="resultsContent"></p>
-          <button id="closeDialogButton">Close</button>
-        </dialog>
+      <dialog id="resultsDialog">
+        <h2>Submission Results</h2>
+        <p id="score"></p>
+        <p id="resultsContent"></p>
+        <button id="closeDialogButton">Close</button>
+      </dialog>
     </div>
   </body>
 </html>

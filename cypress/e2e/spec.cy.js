@@ -203,3 +203,44 @@ describe("testing form validation", () => {
     cy.get("#energyLevelValue").should("have.text", "100");
   });
 });
+
+describe("testing ui on mobile", () => {
+  beforeEach(() => {
+    cy.viewport("iphone-6");
+    cy.visit(url);
+  });
+
+  it("should have no horizontal scroll on mobile", () => {
+    cy.get("body").should("not.have.css", "overflow-x", "scroll");
+  });
+});
+
+
+describe("testing css styles", () => {
+  beforeEach(() => {
+    cy.visit(url);
+  });
+
+  it("should have the correct background colour", () => {
+    cy.get("body").should("have.css", "background-color", "rgb(255, 250, 205)");
+  });
+
+  it("should have the correct font family", () => {
+    cy.get("body").should("have.css", "font-family", "\"sans-serif\"");
+  });
+
+  it("should align the text to the center", () => {
+    cy.get("h1").should("have.css", "text-align", "center");
+    cy.get("#description").should("have.css", "text-align", "center");
+    cy.get("#moodForm").should("have.css", "text-align", "center");
+  });
+
+  it("should have italic font style for the description", () => {
+    cy.get("#description").should("have.css", "font-style", "italic");
+  });
+
+  it("should have the correct border for the mood form", () => {
+    cy.get("#moodForm").should("have.css", "border-style", "dotted");
+    cy.get("#moodForm").should("have.css", "border-color", "rgb(176, 224, 230)");
+  });
+});

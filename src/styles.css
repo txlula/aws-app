@@ -1,5 +1,5 @@
 body {
-    font-family: 'sans-serif';
+    font-family: sans-serif;
     background-color: lemonchiffon;
 }
 
@@ -24,16 +24,26 @@ h1 {
     font-style: italic;
 }
 
+#instructions {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 2em;
+}
+
 #moodForm {
     text-align: center;
     border-style: dotted;
     border-color: powderblue;
-    padding-bottom: 2em;
+    padding-bottom: 3em;
     padding-top: 1em;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin: auto;
+    width: 75%;
 }
 
 #moodImage {
-    width: 10%;
+    width: 30%;
+}
+
+#resultsDialog {
+    padding-bottom: 2em;
 }
