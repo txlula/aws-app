@@ -1,0 +1,74 @@
+[
+    {
+      "Id": "pageviewcount",
+      "MetricStat": {
+        "Metric": {
+          "Namespace": "AWS/RUM",
+          "MetricName": "PageViewCount",
+          "Dimensions": [
+            {
+              "Name": "application_name",
+             "Value": "daily-mood-checker-monitor"
+            }
+          ]
+        },
+        "Period": 300,
+        "Stat": "Average"
+      },
+      "ReturnData": true
+    },
+    {
+      "Id": "pageviewcountpersession",
+      "MetricStat": {
+        "Metric": {
+          "Namespace": "AWS/RUM",
+          "MetricName": "PageViewCountPerSession",
+          "Dimensions": [
+            {
+              "Name": "application_name",
+             "Value": "daily-mood-checker-monitor"
+            }
+          ]
+        },
+        "Period": 300,
+        "Stat": "Average"
+      },
+      "ReturnData": true
+    },
+    {
+      "Id": "sessionduration",
+      "MetricStat": {
+        "Metric": {
+          "Namespace": "AWS/RUM",
+          "MetricName": "SessionDuration",
+          "Dimensions": [
+            {
+              "Name": "application_name",
+             "Value": "daily-mood-checker-monitor"
+            }
+          ]
+        },
+        "Period": 300,
+        "Stat": "Average"
+      },
+      "ReturnData": true
+    },
+    {
+      "Id": "timeonpage",
+      "MetricStat": {
+        "Metric": {
+          "Namespace": "AWS/RUM",
+          "MetricName": "TimeOnPage",
+          "Dimensions": [
+            {
+              "Name": "application_name",
+             "Value": "daily-mood-checker-monitor"
+            }
+          ]
+        },
+        "Period": 300,
+        "Stat": "Average"
+      },
+      "ReturnData": true
+    }
+]
