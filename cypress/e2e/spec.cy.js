@@ -28,6 +28,10 @@ describe("testing website content", () => {
     cy.get("body").should("be.visible");
   });
 
+  it("displays the instructions", () => {
+    cy.get("#instructions").should("be.visible");
+  });
+
   it("displays the correct questions", () => {
     cy.get("#moodForm").should("contain", "How are you feeling today?");
     cy.get("#moodForm").should("contain", "What is the reason for your mood?");
@@ -179,7 +183,7 @@ describe("testing form validation", () => {
     cy.visit(url);
   });
 
-  it("should not allow user to input more than 1000 characters", () => {
+  it("should not allow user to input more than 1000 characters in the additional thoughts textarea", () => {
     const longText = "a".repeat(1001);
 
     cy.get("#additionalInput").should("have.attr", "maxlength", "1000");

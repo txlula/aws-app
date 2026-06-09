@@ -39,10 +39,10 @@
     <title>Daily Mood Checker</title>
   </head>
 
-  <body>
-    <h1>Daily Mood Checker</h1>
-    <p id="description">It is time to track your daily mood and feelings.</p>
-    <p id="instructions">
+  <body data-testid="body">
+    <h1 data-testid="pageTitle">Daily Mood Checker</h1>
+    <p id="description" data-testid="description">It is time to track your daily mood and feelings.</p>
+    <p id="instructions" data-testid="instructions">
       Welcome! 😊 This form only takes a couple of minutes to fill in. Just
       follow the steps below, working from top to bottom.<br />
       1. Choose your mood. 🙋‍♀️<br />
@@ -84,21 +84,22 @@
       That's it — you're all done! 🎉
     </p>
 
-    <div id="moodForm">
+    <div id="moodForm" data-testid="moodForm">
       <form>
         <div class="questionContainer">
           <p class="question">How are you feeling today?</p>
-          <input type="radio" id="happy" name="mood" value="happy" />
+          <input type="radio" id="happy" name="mood" value="happy" data-testid="happy"/>
           <label for="happy">Happy</label>
           <input
             type="radio"
             id="neutral"
             name="mood"
             value="neutral"
+            data-testid="neutral"
             checked
           />
           <label for="neutral">Neutral</label>
-          <input type="radio" id="sad" name="mood" value="sad" />
+          <input type="radio" id="sad" name="mood" value="sad" data-testid="sad"/>
           <label for="sad">Sad</label>
 
           <div class="moodImageContainer">
@@ -106,6 +107,7 @@
               id="moodImage"
               src="images/neutral face.png"
               alt="Neutral Face"
+              data-testid="moodImage"
             />
           </div>
         </div>
@@ -117,6 +119,7 @@
             name="reasonInput"
             id="reasonInput"
             placeholder="I had a great day at work!"
+            data-testid="reasonInput"
             required
           />
         </div>
@@ -130,8 +133,9 @@
             min="0"
             max="100"
             value="50"
+            data-testid="energyLevel"
           />
-          <p>Energy Level: <span id="energyLevelValue">50</span></p>
+          <p>Energy Level: <span id="energyLevelValue" data-testid="energyLevelValue">50</span></p>
         </div>
 
         <div class="questionContainer">
@@ -141,6 +145,7 @@
             name="gratefulInput"
             id="gratefulInput"
             placeholder="I am grateful for..."
+            data-testid="gratefulInput"
             required
           />
         </div>
@@ -154,6 +159,7 @@
             name="goalInput"
             id="goalInput"
             placeholder="I want to..."
+            data-testid="goalInput"
             required
           />
         </div>
@@ -165,17 +171,20 @@
             id="additionalInput"
             placeholder="Write your thoughts here..."
             maxlength="1000"
+            data-testid="additionalInput"
           ></textarea>
         </div>
 
-        <button id="submitButton" type="submit">Submit</button>
+        <button id="submitButton" type="submit" data-testid="submitButton">
+          Submit
+        </button>
       </form>
 
-      <dialog id="resultsDialog">
-        <h2>Submission Results</h2>
-        <p id="score"></p>
-        <p id="resultsContent"></p>
-        <button id="closeDialogButton">Close</button>
+      <dialog id="resultsDialog" data-testid="resultsDialog">
+        <h2 data-testid="resultsDialogTitle">Submission Results</h2>
+        <p id="score" data-testid="score"></p>
+        <p id="resultsContent" data-testid="resultsContent"></p>
+        <button id="closeDialogButton" data-testid="closeDialogButton">Close</button>
       </dialog>
     </div>
   </body>

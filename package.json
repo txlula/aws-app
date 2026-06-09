@@ -7,7 +7,6 @@
     "*.{js,jsx,ts,tsx,json,css,md}": "prettier --write"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --write .",
     "day-metrics": "aws cloudwatch get-metric-data --start-time \"$(date -u -d '24 hours ago' +\"%Y-%m-%dT%H:%M:%SZ\")\" --end-time \"$(date -u +\"%Y-%m-%dT%H:%M:%SZ\")\" --metric-data-queries file://metrics.json"
@@ -24,6 +23,8 @@
   "homepage": "https://github.com/txlula/aws-app#readme",
   "description": "",
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.2",
     "cypress": "^15.11.0",
     "eslint": "^10.0.3",
     "lint-staged": "^16.3.2",
