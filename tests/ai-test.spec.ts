@@ -1,4 +1,4 @@
-import { test, expect, devices } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 const URL =
   'http://mthree-peregrine-s3-3.s3-website-us-east-1.amazonaws.com/lucy/';
@@ -155,7 +155,7 @@ test.describe('Testing UI on Mobile', () => {
 test.describe('Testing CSS Styles', () => {
   test('should have the correct background colour', async ({ page }) => {
     const backgroundColor = await page.locator('body').evaluate((el) => {
-      return window.getComputedStyle(el).backgroundColor;
+      return globalThis.getComputedStyle(el).backgroundColor;
     });
 
     // lemonchiffon = rgb(255, 250, 205)
@@ -164,7 +164,7 @@ test.describe('Testing CSS Styles', () => {
 
   test('should have the correct font family', async ({ page }) => {
     const fontFamily = await page.locator('body').evaluate((el) => {
-      return window.getComputedStyle(el).fontFamily;
+      return globalThis.getComputedStyle(el).fontFamily;
     });
 
     expect(fontFamily.toLowerCase()).toContain('sans-serif');
@@ -174,7 +174,7 @@ test.describe('Testing CSS Styles', () => {
     const titleAlignment = await page
       .getByTestId('pageTitle')
       .evaluate((el) => {
-        return window.getComputedStyle(el).textAlign;
+        return globalThis.getComputedStyle(el).textAlign;
       });
 
     expect(titleAlignment).toBe('center');
