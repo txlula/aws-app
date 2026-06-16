@@ -219,7 +219,6 @@ describe("testing ui on mobile", () => {
   });
 });
 
-
 describe("testing css styles", () => {
   beforeEach(() => {
     cy.visit(url);
@@ -230,7 +229,7 @@ describe("testing css styles", () => {
   });
 
   it("should have the correct font family", () => {
-    cy.get("body").should("have.css", "font-family", "\"sans-serif\"");
+    cy.get("body").should("have.css", "font-family", '"sans-serif"');
   });
 
   it("should align the text to the center", () => {
@@ -245,6 +244,10 @@ describe("testing css styles", () => {
 
   it("should have the correct border for the mood form", () => {
     cy.get("#moodForm").should("have.css", "border-style", "dotted");
-    cy.get("#moodForm").should("have.css", "border-color", "rgb(176, 224, 230)");
+    cy.get("#moodForm").should(
+      "have.css",
+      "border-color",
+      "rgb(176, 224, 230)",
+    );
   });
 });

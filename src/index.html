@@ -41,7 +41,9 @@
 
   <body data-testid="body">
     <h1 data-testid="pageTitle">Daily Mood Checker</h1>
-    <p id="description" data-testid="description">It is time to track your daily mood and feelings.</p>
+    <p id="description" data-testid="description">
+      It is time to track your daily mood and feelings.
+    </p>
     <p id="instructions" data-testid="instructions">
       Welcome! 😊 This form only takes a couple of minutes to fill in. Just
       follow the steps below, working from top to bottom.<br />
@@ -88,7 +90,13 @@
       <form>
         <div class="questionContainer">
           <p class="question">How are you feeling today?</p>
-          <input type="radio" id="happy" name="mood" value="happy" data-testid="happy"/>
+          <input
+            type="radio"
+            id="happy"
+            name="mood"
+            value="happy"
+            data-testid="happy"
+          />
           <label for="happy">Happy</label>
           <input
             type="radio"
@@ -99,7 +107,13 @@
             checked
           />
           <label for="neutral">Neutral</label>
-          <input type="radio" id="sad" name="mood" value="sad" data-testid="sad"/>
+          <input
+            type="radio"
+            id="sad"
+            name="mood"
+            value="sad"
+            data-testid="sad"
+          />
           <label for="sad">Sad</label>
 
           <div class="moodImageContainer">
@@ -135,7 +149,10 @@
             value="50"
             data-testid="energyLevel"
           />
-          <p>Energy Level: <span id="energyLevelValue" data-testid="energyLevelValue">50</span></p>
+          <p>
+            Energy Level:
+            <span id="energyLevelValue" data-testid="energyLevelValue">50</span>
+          </p>
         </div>
 
         <div class="questionContainer">
@@ -184,7 +201,9 @@
         <h2 data-testid="resultsDialogTitle">Submission Results</h2>
         <p id="score" data-testid="score"></p>
         <p id="resultsContent" data-testid="resultsContent"></p>
-        <button id="closeDialogButton" data-testid="closeDialogButton">Close</button>
+        <button id="closeDialogButton" data-testid="closeDialogButton">
+          Close
+        </button>
       </dialog>
     </div>
   </body>
